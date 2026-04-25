@@ -3,9 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 [![Visualizer](https://img.shields.io/badge/Visualization-Supported-orange.svg)]()
-[![Last Commit](https://img.shields.io/github/last-commit/Mordekai66/dataset-iq)]()
-[![Repo Size](https://img.shields.io/github/repo-size/Mordekai66/dataset-iq)]()
-[![Visitors](https://komarev.com/ghpvc/?username=Mordekai66&repo=dataset-iq)]()
+[![Last Commit](https://img.shields.io/github/last-commit/Mordekai66/vizods)]()
+[![Repo Size](https://img.shields.io/github/repo-size/Mordekai66/vizods)]()
+[![Visitors](https://komarev.com/ghpvc/?username=Mordekai66&repo=vizods)]()
 
 **vizods** is a comprehensive Python library that combines robust Data Structures and Algorithms with built-in visualization tools. It allows developers and students to not only execute code but also **see** how data transforms in real-time through images and videos.
 
