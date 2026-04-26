@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="vizods",
-    version="1.0.3",
+    version="1.0.4",
     author="Abdelrahman Ali",
     author_email="abdelrahman.ali.dev@gmail.com",
     description="A Python library for visualizing Data Structures and Algorithms with images and videos",
@@ -15,6 +15,8 @@ setup(
         "Source Code": "https://github.com/Mordekai66/vizods",
     },
     packages=find_packages(),
+    include_package_data=True,
+    package_data={"InnoCaptcha": ["**/*"]},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

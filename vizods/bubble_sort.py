@@ -23,7 +23,7 @@ class BubbleSort:
             if visualize:
                 self._take_snapshot(sorted_count=i + 1)
 
-    def _take_snapshot(self, message, highlight=(None, None), sorted_count=0):
+    def _take_snapshot(self, highlight=(None, None), sorted_count=0):
         plt.figure(figsize=(6, 4))
         n = len(self.data)
         

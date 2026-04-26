@@ -1,4 +1,4 @@
-# vizods 🚀 
+# vizods
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
@@ -10,7 +10,7 @@
 
 ---
 
-## ✨ Key Features
+## Key Features
 * **Built-in Visualization:** Generate `.png` snapshots or `.mp4` videos of algorithm execution.
 * **Educational Legends:** Every visual output includes a color-coded legend and status messages.
 * **Clean API:** Intuitive syntax designed for both production and learning.
@@ -18,7 +18,7 @@
 
 ---
 
-## 🛠 Installation
+## Installation
 
 ```bash
 pip install vizods
@@ -27,17 +27,17 @@ pip install vizods
 
 ---
 
-## 🚀 Quick Start: Bubble Sort Visualization
+## Quick Start: Bubble Sort Visualization
 
 ```python
-from vizods.sorting import BubbleSort
+from vizods.bubble_sort import BubbleSort
 
 # Initialize with data
 data = [64, 34, 25, 12, 22, 11, 90]
 sorter = BubbleSort(data)
 
 # Run algorithm with visualization enabled
-sorter.sort(visualize=True)
+sorter.sort()
 
 # Export results
 sorter.save_snapshot("final_result.png")
@@ -46,9 +46,9 @@ sorter.save_video("bubble_sort_demo.mp4", fps=5)
 
 ---
 
-## 📚 Supported Modules
+## Supported Modules
 
-### 1. Sorting Algorithms 📊
+### 1. Sorting Algorithms
 | Algorithm | Status | Visualization |
 | :--- | :---: | :---: |
 | Bubble Sort | ✅ | Bar Chart + Legend |
@@ -57,18 +57,18 @@ sorter.save_video("bubble_sort_demo.mp4", fps=5)
 | Quick Sort | ✅ | Pivot Tracking |
 | Merge Sort | ✅ | Sub-array Merging |
 
-### 2. Data Structures (Coming Soon) 🏗️
+### 2. Data Structures (Coming Soon)
 * **Linked Lists:** Animated pointer manipulation and node traversal.
 * **Binary Trees:** Visual tree rebalancing (AVL/BST).
 * **Graphs:** Pathfinding visualization (Dijkstra, BFS, DFS).
 
-### 3. Pathfinding 📍
+### 3. Pathfinding
 * **A* Search:** Grid-based visualization.
 * **Dijkstra:** Weighted graph traversal animations.
 
 ---
 
-## 🎨 Visualization Standards
+## Visualization Standards
 To ensure a consistent learning experience, vizods follows a strict color-coding system:
 * 🟢 **Green:** Sorted / Finalized / Target Reached.
 * 🟠 **Orange:** Currently being processed / Compared.
@@ -78,7 +78,7 @@ To ensure a consistent learning experience, vizods follows a strict color-coding
 
 ---
 
-## 🤝 Contributing
+## Contributing
 We welcome contributions! If you'd like to add a new algorithm or improve a visualizer:
 1. Fork the Project.
 2. Create your Feature Branch.
@@ -88,7 +88,7 @@ We welcome contributions! If you'd like to add a new algorithm or improve a visu
 
 ---
 
-## 📄 License
+## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
