@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="vizods",
-    version="1.0.1",
+    version="1.0.2",
     author="Abdelrahman Ali",
     author_email="abdelrahman.ali.dev@gmail.com",
     description="A Python library for visualizing Data Structures and Algorithms with images and videos",
