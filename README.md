@@ -6,15 +6,15 @@
 [![Last Commit](https://img.shields.io/github/last-commit/Mordekai66/vizods)]()
 [![Repo Size](https://img.shields.io/github/repo-size/Mordekai66/vizods)]()
 
-**vizods** is a comprehensive Python library that combines robust Data Structures and Algorithms with built-in visualization tools. It allows developers and students to not only execute code but also **see** how data transforms in real-time through images and videos.
+**vizods** is a powerful Python library that bridges the gap between abstract code and visual understanding. Transform your algorithms and data structures into high-quality `.mp4` animations and `.png` snapshots with a single line of code.
 
 ---
 
 ## Key Features
-* **Built-in Visualization:** Generate `.png` snapshots or `.mp4` videos of algorithm execution.
-* **Educational Legends:** Every visual output includes a color-coded legend and status messages.
-* **Clean API:** Intuitive syntax designed for both production and learning.
-* **Extensible Architecture:** Easily add new algorithms by inheriting from our base visualizer classes.
+* **Intuitive Visualization:** Automatically generate animations for sorting, trees, and graphs.
+* **Smart Structure Support:** Specialized layouts for Linked Lists and Binary Search Trees.
+* **Pathfinding Tracing:** Step-by-step visualization of Dijkstra’s algorithm with weight tracking.
+* **Customizable:** Add your own logic and let `vizods` handle the rendering.
 
 ---
 
@@ -23,65 +23,59 @@
 ```bash
 pip install vizods
 ```
-*Note: Ensure you have `ffmpeg` installed on your system for video rendering.*
+*Note: Ensure you have `ffmpeg` installed for video rendering.*
 
 ---
 
-## Quick Start: Bubble Sort Visualization
+## Usage Examples
 
+### 1. Binary Search Tree (BST)
 ```python
-from vizods.bubble_sort import BubbleSort
+from vizods.bst import BST
 
-# Initialize with data
-data = [64, 34, 25, 12, 22, 11, 90]
-sorter = BubbleSort(data)
+tree = BST()
+for val in [50, 30, 70, 20, 40]:
+    tree.insert(val)
 
-# Run algorithm with visualization enabled
-sorter.sort()
+tree.save_video("tree_growth.mp4")
+tree.save_snapshot("final_tree.png")
+```
 
-# Export results
-sorter.save_snapshot("final_result.png")
-sorter.save_video("bubble_sort_demo.mp4", fps=5)
+### 2. Dijkstra's Algorithm
+```python
+from vizods.dijkstra import Dijkstra
+
+graph = Dijkstra()
+graph.add_edge('A', 'B', 4)
+graph.add_edge('B', 'C', 2)
+graph.visualize_search(start_node='A', target_node='C')
+graph.save_video("pathfinding.mp4")
 ```
 
 ---
 
 ## Supported Modules
 
-### 1. Sorting Algorithms
-| Algorithm | Status | Visualization |
-| :--- | :---: | :---: |
-| Bubble Sort | ✅ | Bar Chart + Legend |
-| Selection Sort | ✅ | Bar Chart + Legend |
-| Insertion Sort | ✅ | Bar Chart + Legend |
-| Quick Sort | ✅ | Pivot Tracking |
-| Merge Sort | ✅ | Sub-array Merging |
-
-### 2. Data Structures (Coming Soon)
-* **Linked Lists:** Animated pointer manipulation and node traversal.
-* **Binary Trees:** Visual tree rebalancing (AVL/BST).
-* **Graphs:** Pathfinding visualization (Dijkstra, BFS, DFS).
-
-### 3. Pathfinding
-* **A* Search:** Grid-based visualization.
-* **Dijkstra:** Weighted graph traversal animations.
+| Category | Modules | Visual Style |
+| :--- | :--- | :--- |
+| **Sorting** | Bubble, Quick, Merge, Insertion, Selection | Bar Charts |
+| **Data Structures** | Linked List, BST | Nodes & Pointers |
+| **Pathfinding** | Dijkstra | Weighted Graphs |
 
 ---
 
 ## Visualization Standards
-To ensure a consistent learning experience, vizods follows a strict color-coding system:
-* 🟢 **Green:** Sorted / Finalized / Target Reached.
-* 🟠 **Orange:** Currently being processed / Compared.
-* 🔴 **Red:** Highlighted element / Error / Key being moved.
-* 🟣 **Purple:** Pivot point (for Divide & Conquer).
-* ⚪ **Gray:** Inactive / Out of scope.
+* 🟢 **Green:** Sorted / Visited Node.
+* 🟠 **Orange:** Active / Currently Processing.
+* 🔴 **Red:** Shortest Path / Deleting Node.
+* 🔵 **Skyblue:** Standard Node / Unvisited.
 
 ---
 
 ## Contributing
-We welcome contributions! If you'd like to add a new algorithm or improve a visualizer:
+Contributions are what make the open-source community an amazing place to learn! 
 1. Fork the Project.
-2. Create your Feature Branch.
+2. Create your Feature Branch (`git checkout -b feature/NewAlgo`).
 3. Commit your Changes.
 4. Push to the Branch.
 5. Open a Pull Request.
@@ -91,5 +85,4 @@ We welcome contributions! If you'd like to add a new algorithm or improve a visu
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
----
-**Developed with ❤️ for the Developer Community.**
+**Developed with ❤️ by Mordekai66**
