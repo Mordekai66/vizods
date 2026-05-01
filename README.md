@@ -393,7 +393,7 @@ vizods/
 │   ├── linked_list.py
 │   ├── merge_sort.py
 │   ├── queue.py
-│   ├── quick_sort.py q
+│   ├── quick_sort.py 
 │   ├── selection_sort.py
 │   └── stack.py
 ├── .gitignore
