@@ -373,7 +373,7 @@ vizods/
 ├── .github/
 │   └── .workflows/
 │       └── pypi.yml
-├── output/ # 
+├── output/ # Samples
 │   ├── bst_animation.mp4
 │   ├── bst_snapshot.png
 │   ├── bubble_sort_snapshot.png
@@ -392,8 +392,10 @@ vizods/
 │   ├── insertion_sort.py
 │   ├── linked_list.py
 │   ├── merge_sort.py
-│   ├── quick_sort.py
-│   └── selection_sort.py
+│   ├── queue.py
+│   ├── quick_sort.py q
+│   ├── selection_sort.py
+│   └── stack.py
 ├── .gitignore
 ├── LICENSE
 ├── README.md
