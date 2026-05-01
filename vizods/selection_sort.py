@@ -10,6 +10,9 @@ class SelectionSort:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:
+            for file in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, file))
 
     def sort(self, visualize=True):
         n = len(self.data)
@@ -68,7 +71,6 @@ class SelectionSort:
             for filepath in self.frames:
                 image = imageio.imread(filepath)
                 writer.append_data(image)
-                os.remove(filepath)
         
         print(f"Video saved as {output_name}")
         

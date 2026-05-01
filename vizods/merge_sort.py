@@ -10,6 +10,9 @@ class MergeSort:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:
+            for file in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, file))
 
     def sort(self, visualize=True):
         self._merge_sort_recursive(0, len(self.data) - 1, visualize)
@@ -82,7 +85,7 @@ class MergeSort:
         plt.legend(handles=legend_elements, loc='upper right')
         plt.title("Merge Sort: Combining Sub-arrays")
         
-        file_path = os.path.join(self.temp_dir, f"frame_{len(self.frames)}.png")
+        file_path = os.path.join(self.temp_dir, f"merge_{len(self.frames)}.png")
         
         plt.savefig(file_path)
         plt.close()
@@ -97,6 +100,14 @@ class MergeSort:
             for filepath in self.frames:
                 image = imageio.imread(filepath)
                 writer.append_data(image)
-                os.remove(filepath)
         
         print(f"Video saved as {output_name}")
+    def save_snapshot(self, filename="merge_sort_snapshot.png"):
+        if self.frames:
+            latest_frame = self.frames[-1]
+            if os.path.exists(filename):
+                os.remove(filename)
+            os.rename(latest_frame, filename)
+            print(f"Latest snapshot saved as: {filename}")
+        else:
+            print("No snapshots available to save.")

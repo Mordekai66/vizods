@@ -17,6 +17,9 @@ class BST:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:            
+            for f in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, f))
 
     def insert(self, value):
         if self.root is None:

@@ -10,6 +10,9 @@ class BubbleSort:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:
+            for f in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, f))
 
     def sort(self, visualize=True):
         n = len(self.data)
@@ -56,7 +59,6 @@ class BubbleSort:
             for filename in self.frames:
                 image = imageio.imread(filename)
                 writer.append_data(image)
-                os.remove(filename)
         print(f"Video saved as {output_name}")
 
     def save_snapshot(self, filename="final_state.png"):

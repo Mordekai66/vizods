@@ -10,6 +10,9 @@ class InsertionSort:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:
+            for file in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, file))
 
     def sort(self, visualize=True):
         n = len(self.data)
@@ -73,6 +76,12 @@ class InsertionSort:
             for filepath in self.frames:
                 image = imageio.imread(filepath)
                 writer.append_data(image)
-                os.remove(filepath)
-        
+                
         print(f"Video saved as {output_name}")
+    def save_snapshot(self, output_name="insertion_sort_final.png"):
+        plt.figure(figsize=(8, 5))
+        plt.bar(range(len(self.data)), self.data, color='green')
+        plt.title("Insertion Sort: Final Sorted Array")
+        plt.savefig(output_name)
+        plt.close()
+        print(f"Final snapshot saved as {output_name}")

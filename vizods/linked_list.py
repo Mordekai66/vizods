@@ -11,6 +11,9 @@ class LinkedList:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:            
+            for file in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, file))
 
     def add_node(self, value):
         self.nodes.append(value)
@@ -57,7 +60,7 @@ class LinkedList:
         ]
         plt.legend(handles=legend_elements, loc='upper right')
 
-        filename = os.path.join(self.temp_dir, f"ll_{len(self.frames)}.png")
+        filename = os.path.join(self.temp_dir, f"linked_list_{len(self.frames)}.png")
         plt.savefig(filename)
         plt.close()
         self.frames.append(filename)
@@ -67,5 +70,14 @@ class LinkedList:
             for filename in self.frames:
                 image = imageio.imread(filename)
                 writer.append_data(image)
-                os.remove(filename)
         print(f"Linked List video saved: {output_name}")
+        
+    def save_snapshot(self, filename="linked_list_snapshot.png"):
+        if self.frames:
+            latest_frame = self.frames[-1]
+            if os.path.exists(filename):
+                os.remove(filename)
+            os.rename(latest_frame, filename)
+            print(f"Latest snapshot saved as: {filename}")
+        else:
+            print("No snapshots available to save.")

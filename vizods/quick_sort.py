@@ -10,6 +10,9 @@ class QuickSort:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:
+            for file in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, file))
 
     def sort(self, visualize=True):
         self._quick_sort_recursive(0, len(self.data) - 1, visualize)
@@ -81,6 +84,15 @@ class QuickSort:
             for filepath in self.frames:
                 image = imageio.imread(filepath)
                 writer.append_data(image)
-                os.remove(filepath)
         
         print(f"Video saved as {output_name}")
+    
+    def save_snapshot(self, output_name="quick_sort_snapshot.png"):
+        if not self.frames:
+            print("There are no frames to save.")
+            return
+        
+        latest_frame = self.frames[-1]
+        image = imageio.imread(latest_frame)
+        imageio.imwrite(output_name, image)
+        print(f"Snapshot saved as {output_name}")

@@ -10,6 +10,9 @@ class Dijkstra:
         self.temp_dir = ".temp"
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
+        else:
+            for f in os.listdir(self.temp_dir):
+                os.remove(os.path.join(self.temp_dir, f))
 
     def add_edge(self, u, v, weight):
         self.graph.add_edge(u, v, weight=weight)
@@ -105,6 +108,13 @@ class Dijkstra:
             for filename in self.frames:
                 image = imageio.imread(filename)
                 writer.append_data(image)
-                if os.path.exists(filename):
-                    os.remove(filename)
         print(f"✅ Dijkstra video saved as: {output_name}")
+        
+    def save_snapshot(self, filename="dijkstra_snapshot.png"):
+        if self.frames:
+            latest_frame = self.frames[-1]
+            image = imageio.imread(latest_frame)
+            imageio.imwrite(filename, image)
+            print(f"✅ Latest snapshot saved as: {filename}")
+        else:
+            print("⚠️ No snapshots available to save.")

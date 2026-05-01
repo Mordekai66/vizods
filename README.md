@@ -124,6 +124,8 @@ That's it! 🎉 You now have a fully animated MP4 visualization.
 | | `quick_sort` | `QuickSort` | 📊 Bar Chart |
 | **Data Structures** | `linked_list` | `LinkedList` | 🔗 Nodes & Pointers |
 | | `bst` | `BST` | 🌳 Hierarchical Tree |
+| | `stack` | `Stack` | 📚 Vertical Bar Stack |
+| | `queue` | `Queue` | ➡️ Horizontal Bar Queue |
 | **Graph Algorithms** | `dijkstra` | `Dijkstra` | 🗺️ Weighted Graph |
 
 ---
@@ -247,6 +249,51 @@ graph.visualize_search(start_node='A', target_node='E')
 graph.save_video("dijkstra_path.mp4", fps=1)
 ```
 
+### 5️⃣ Stack (LIFO)
+
+```python
+from vizods.stack import Stack
+
+stack = Stack()
+
+# Push elements
+for value in [10, 20, 30, 40, 50]:
+    stack.push(value)
+
+# Peek and pop
+stack.peek()
+stack.pop()
+stack.pop()
+
+# Save outputs
+stack.save_video("stack_demo.mp4", fps=2)
+stack.save_snapshot("stack_final.png")
+```
+
+### 6️⃣ Queue (FIFO)
+
+```python
+from vizods.queue import Queue
+
+queue = Queue()
+
+# Enqueue elements
+for value in [10, 20, 30, 40, 50]:
+    queue.enqueue(value)
+
+# Inspect front and rear
+queue.front()
+queue.rear()
+
+# Dequeue elements
+queue.dequeue()
+queue.dequeue()
+
+# Save outputs
+queue.save_video("queue_demo.mp4", fps=2)
+queue.save_snapshot("queue_final.png")
+```
+
 ---
 
 ## 🎨 Visualization Color Standards
@@ -323,6 +370,20 @@ graph.save_video("dijkstra_path.mp4", fps=1)
 
 ```
 vizods/
+├── .github/
+│   └── .workflows/
+│       └── pypi.yml
+├── output/ # 
+│   ├── bst_animation.mp4
+│   ├── bst_snapshot.png
+│   ├── bubble_sort_snapshot.png
+│   ├── bubble_sort.mp4
+│   ├── ...
+│   ├── ...
+│   ├── ...
+│   └── stack.mp4
+├── tests/
+│   └── test_all_algorithms.py
 ├── vizods/
 │   ├── __init__.py
 │   ├── bst.py
@@ -334,8 +395,8 @@ vizods/
 │   ├── quick_sort.py
 │   └── selection_sort.py
 ├── .gitignore
-├── README.md
 ├── LICENSE
+├── README.md
 ├── requirements.txt
 └── setup.py
 ```
