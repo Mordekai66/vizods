@@ -7,6 +7,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/vizods?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/vizods/)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/vizods?period=total&units=INTERNATIONAL_SYSTEM&left_color=GRAY&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/vizods)
 [![Downloads](https://img.shields.io/pypi/dm/vizods?color=brightgreen&logo=pypi&logoColor=white)](https://pypi.org/project/vizods/)
 [![GitHub Stars](https://img.shields.io/github/stars/Mordekai66/vizods?style=social)](https://github.com/Mordekai66/vizods)
 [![GitHub Issues](https://img.shields.io/github/issues/Mordekai66/vizods)](https://github.com/Mordekai66/vizods/issues)
