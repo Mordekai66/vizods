@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="vizods",
-    version="2.2.0",
+    version="2.3.0",
     author="Abdelrahman Ali",
     author_email="abdelrahman.ali.dev@gmail.com",
     description="The ultimate Python toolkit for animating Data Structures and Algorithms.",
