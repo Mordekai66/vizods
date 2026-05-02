@@ -4,10 +4,12 @@ import shutil
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
+from vizods.binary_search import BinarySearch
 from vizods.bst import BST
 from vizods.bubble_sort import BubbleSort
 from vizods.dijkstra import Dijkstra
 from vizods.insertion_sort import InsertionSort
+from vizods.linear_search import LinearSearch
 from vizods.linked_list import LinkedList
 from vizods.merge_sort import MergeSort
 from vizods.queue import Queue
@@ -40,6 +42,30 @@ def cleanup_temp_dirs():
         if os.path.exists(temp_dir):
             shutil.rmtree(temp_dir, ignore_errors=True)
             print_info(f"Cleaned up: {temp_dir}")
+
+def test_binary_search():
+    print_info("Testing Binary Search...")
+    data = [10, 20, 30, 40, 50, 60, 70, 80, 90] # يجب أن تكون مرتبة
+    bs = BinarySearch(data)
+    
+    assert bs.search(30) != -1, "Should find 30"
+    assert bs.search(100) == -1, "Should not find 100"
+    
+    bs.save_video("output/binary_search.mp4", fps=2)
+    print_success("Binary Search tests passed!")
+
+def test_linear_search():
+    print_info("Testing Linear Search...")
+    data = [10, 50, 30, 70, 80, 60, 20, 90, 40]
+    ls = LinearSearch(data)
+    
+    # حالة البحث عن عنصر موجود
+    assert ls.search(70) == True, "Should find 70"
+    # حالة البحث عن عنصر غير موجود
+    assert ls.search(100) == False, "Should not find 100"
+    
+    ls.save_video("output/linear_search.mp4", fps=2)
+    print_success("Linear Search tests passed!")
 
 def test_bst():
     print_info("Testing Binary Search Tree (BST)...")
@@ -303,6 +329,8 @@ def main():
     os.makedirs("output", exist_ok=True)
     
     tests = [
+        ("Linear Search", test_linear_search),
+        ("Binary Search", test_binary_search),
         ("Binary Search Tree", test_bst),
         ("Stack", test_stack),
         ("Queue", test_queue),

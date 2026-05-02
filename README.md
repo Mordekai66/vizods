@@ -39,6 +39,7 @@
 | 📸 **Snapshot Export** | Save final or intermediate states as `.png` images |
 | 🌳 **Tree Visualization** | Hierarchical layouts for Binary Search Trees |
 | 📊 **Sorting Animations** | Bar chart visualizations with color-coded states |
+| 🔍 **Search Animations**  |  Dynamic highlighting of search ranges and target matching |
 | 🗺️ **Graph Pathfinding** | Step-by-step Dijkstra's algorithm tracing with weights |
 | 🔗 **Linked Lists** | Pointer-based node visualization |
 | 🎨 **Color-Coded States** | Universal color scheme for clarity |
@@ -118,6 +119,8 @@ That's it! 🎉 You now have a fully animated MP4 visualization.
 
 | Category | Module | Class | Visual Style |
 | :--- | :--- | :--- | :--- |
+| **Searching** | `linear_search` | `LinearSearch` | 🔍 Highlighted Bars |
+| | `binary_search` | `BinarySearch` | 📉 Range Reduction |
 | **Sorting** | `bubble_sort` | `BubbleSort` | 📊 Bar Chart |
 | | `insertion_sort` | `InsertionSort` | 📊 Bar Chart |
 | | `selection_sort` | `SelectionSort` | 📊 Bar Chart |
@@ -133,7 +136,32 @@ That's it! 🎉 You now have a fully animated MP4 visualization.
 
 ## 🎯 Examples
 
-### 1️⃣ Sorting Algorithms
+### 1️⃣ Searching Algorithms
+
+#### Linear Search
+```python
+from vizods.linear_search import LinearSearch
+
+data = [10, 50, 30, 70, 80, 60, 20, 90, 40]
+ls = LinearSearch(data)
+ls.search(70)
+ls.save_video("linear_search.mp4", fps=2)
+```
+
+#### Binary Search
+```python
+from vizods.binary_search import BinarySearch
+
+# Binary search requires a sorted array
+data = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+bs = BinarySearch(data)
+bs.search(70)
+bs.save_video("binary_search.mp4", fps=2)
+```
+
+---
+
+### 2️⃣ Sorting Algorithms
 
 #### Bubble Sort
 ```python
@@ -143,16 +171,24 @@ data = [64, 34, 25, 12, 22, 11, 90]
 sorter = BubbleSort(data)
 sorter.sort(visualize=True)
 sorter.save_video("bubble_sort.mp4", fps=5)
-sorter.save_snapshot("bubble_final.png")
 ```
 
-#### Quick Sort
+#### Insertion Sort
 ```python
-from vizods.quick_sort import QuickSort
+from vizods.insertion_sort import InsertionSort
 
-sorter = QuickSort([10, 80, 30, 90, 40, 50, 70])
+sorter = InsertionSort([12, 11, 13, 5, 6])
 sorter.sort()
-sorter.save_video("quick_sort.mp4", fps=5)
+sorter.save_video("insertion_sort.mp4", fps=4)
+```
+
+#### Selection Sort
+```python
+from vizods.selection_sort import SelectionSort
+
+sorter = SelectionSort([64, 25, 12, 22, 11])
+sorter.sort()
+sorter.save_video("selection_sort.mp4", fps=3)
 ```
 
 #### Merge Sort
@@ -164,135 +200,87 @@ sorter.sort()
 sorter.save_video("merge_sort.mp4", fps=3)
 ```
 
-#### Insertion Sort
+#### Quick Sort
 ```python
-from vizods.insertion_sort import InsertionSort
+from vizods.quick_sort import QuickSort
 
-sorter = InsertionSort([5, 2, 4, 6, 1, 3])
+sorter = QuickSort([10, 7, 8, 9, 1, 5])
 sorter.sort()
-sorter.save_video("insertion_sort.mp4", fps=4)
-```
-
-#### Selection Sort
-```python
-from vizods.selection_sort import SelectionSort
-
-sorter = SelectionSort([29, 10, 14, 37, 13])
-sorter.sort()
-sorter.save_video("selection_sort.mp4", fps=3)
+sorter.save_video("quick_sort.mp4", fps=5)
 ```
 
 ---
 
-### 2️⃣ Binary Search Tree (BST)
+### 3️⃣ Data Structures
 
-```python
-from vizods.bst import BST
-
-tree = BST()
-
-# Insert nodes
-for value in [50, 30, 70, 20, 40, 60, 80]:
-    tree.insert(value)
-
-# Search a value
-tree.search(40)
-
-# Delete a leaf node
-tree.delete(20)
-
-# Save outputs
-tree.save_video("tree_operations.mp4", fps=1)
-tree.save_snapshot("final_tree.png")
-```
-
----
-
-### 3️⃣ Linked List
-
+#### Linked List
 ```python
 from vizods.linked_list import LinkedList
 
 ll = LinkedList()
-
-# Add nodes
 for value in [10, 20, 30, 40, 50]:
     ll.add_node(value)
 
-# Delete a node
 ll.delete_node(30)
-
-# Save animation
 ll.save_video("linked_list.mp4", fps=2)
 ```
 
----
-
-### 4️⃣ Dijkstra's Shortest Path
-
+#### Binary Search Tree (BST)
 ```python
-from vizods.dijkstra import Dijkstra
+from vizods.bst import BST
 
-graph = Dijkstra()
+tree = BST()
+for value in [50, 30, 70, 20, 40, 60, 80]:
+    tree.insert(value)
 
-# Build a weighted graph
-edges = [
-    ('A', 'B', 4), ('A', 'C', 2),
-    ('B', 'C', 1), ('B', 'D', 5),
-    ('C', 'D', 8), ('C', 'E', 10),
-    ('D', 'E', 2)
-]
-for u, v, w in edges:
-    graph.add_edge(u, v, w)
-
-# Visualize shortest path
-graph.visualize_search(start_node='A', target_node='E')
-graph.save_video("dijkstra_path.mp4", fps=1)
+tree.search(40)
+tree.delete(20)
+tree.save_video("bst_animation.mp4", fps=1)
 ```
 
-### 5️⃣ Stack (LIFO)
-
+#### Stack (LIFO)
 ```python
 from vizods.stack import Stack
 
 stack = Stack()
-
-# Push elements
-for value in [10, 20, 30, 40, 50]:
+for value in [10, 20, 30]:
     stack.push(value)
 
-# Peek and pop
-stack.peek()
 stack.pop()
-stack.pop()
-
-# Save outputs
-stack.save_video("stack_demo.mp4", fps=2)
-stack.save_snapshot("stack_final.png")
+stack.save_video("stack.mp4", fps=2)
 ```
 
-### 6️⃣ Queue (FIFO)
-
+#### Queue (FIFO)
 ```python
 from vizods.queue import Queue
 
 queue = Queue()
-
-# Enqueue elements
-for value in [10, 20, 30, 40, 50]:
+for value in [10, 20, 30]:
     queue.enqueue(value)
 
-# Inspect front and rear
-queue.front()
-queue.rear()
-
-# Dequeue elements
 queue.dequeue()
-queue.dequeue()
+queue.save_video("queue.mp4", fps=2)
+```
 
-# Save outputs
-queue.save_video("queue_demo.mp4", fps=2)
-queue.save_snapshot("queue_final.png")
+---
+
+### 4️⃣ Graph Algorithms
+
+#### Dijkstra's Shortest Path
+```python
+from vizods.dijkstra import Dijkstra
+
+graph = Dijkstra()
+edges = [
+    ('A', 'B', 4), ('A', 'C', 2),
+    ('B', 'C', 1), ('B', 'D', 5),
+    ('C', 'D', 8), ('D', 'E', 2)
+]
+for u, v, w in edges:
+    graph.add_edge(u, v, w)
+
+graph.visualize_search(start_node='A', target_node='E')
+graph.save_video("dijkstra_path.mp4", fps=1)
 ```
 
 ---
@@ -314,14 +302,50 @@ queue.save_snapshot("queue_final.png")
 
 ## 📖 API Documentation
 
+### 🔹 Searching Classes (`LinearSearch`, `BinarySearch`)
+
+| Method | Parameters | Description |
+| :--- | :--- | :--- |
+| `__init__(data)` | `data: list` | Initialize with a list of numbers |
+| `search(target)` | `target: int/float` | Start the search process and capture frames |
+| `save_video(output_name, fps)` | `output_name: str`, `fps: int` | Export search animation as MP4 |
+
+---
+
 ### 🔹 Sorting Classes (`BubbleSort`, `QuickSort`, `MergeSort`, `InsertionSort`, `SelectionSort`)
 
 | Method | Parameters | Description |
 | :--- | :--- | :--- |
 | `__init__(data)` | `data: list` | Initialize with a list of numbers |
-| `sort(visualize=True)` | `visualize: bool` | Run sort & capture frames |
-| `save_video(output_name, fps)` | `output_name: str`, `fps: int` | Export animation as MP4 |
-| `save_snapshot(filename)` | `filename: str` | Save final state as PNG |
+| `sort(visualize=True)` | `visualize: bool` | Run the sorting algorithm & capture frames |
+| `save_video(output_name, fps)` | `output_name: str`, `fps: int` | Export sorting animation as MP4 |
+| `save_snapshot(filename)` | `filename: str` | Save the final sorted state as PNG |
+
+---
+
+### 🔹 `Stack` (LIFO - Last In First Out)
+
+| Method | Parameters | Description |
+| :--- | :--- | :--- |
+| `push(value)` | `value` | Add an element to the top of the stack |
+| `pop()` | - | Remove and return the top element |
+| `peek()` | - | View the top element without removing it |
+| `is_empty()` | - | Check if the stack is empty |
+| `save_video(output_name, fps)` | `output_name: str`, `fps: int` | Export stack operations as MP4 |
+| `save_snapshot(filename)` | `filename: str` | Save a snapshot of the current stack state |
+
+---
+
+### 🔹 `Queue` (FIFO - First In First Out)
+
+| Method | Parameters | Description |
+| :--- | :--- | :--- |
+| `enqueue(value)` | `value` | Add an element to the end of the queue |
+| `dequeue()` | - | Remove and return the front element |
+| `front()` | - | View the first element in the queue |
+| `rear()` | - | View the last element in the queue |
+| `save_video(output_name, fps)` | `output_name: str`, `fps: int` | Export queue operations as MP4 |
+| `save_snapshot(filename)` | `filename: str` | Save a snapshot of the current queue state |
 
 ---
 
@@ -330,10 +354,10 @@ queue.save_snapshot("queue_final.png")
 | Method | Description |
 | :--- | :--- |
 | `insert(value)` | Insert a new node into the tree |
-| `search(value)` | Search for a value, animating the traversal |
-| `delete(value)` | Delete a leaf node *(leaf-only support)* |
-| `save_video(output_name, fps)` | Export full operations as MP4 |
-| `save_snapshot(filename)` | Save current tree state as PNG |
+| `search(value)` | Search for a value, animating the traversal path |
+| `delete(value)` | Delete a node *(currently supports leaf nodes)* |
+| `save_video(output_name, fps)` | Export full tree operations as MP4 |
+| `save_snapshot(filename)` | Save the current tree structure as PNG |
 
 ---
 
@@ -341,19 +365,19 @@ queue.save_snapshot("queue_final.png")
 
 | Method | Description |
 | :--- | :--- |
-| `add_node(value)` | Append a node to the list |
-| `delete_node(value)` | Remove a specific node |
-| `save_video(output_name, fps)` | Export operations animation as MP4 |
+| `add_node(value)` | Append a new node to the end of the list |
+| `delete_node(value)` | Remove a specific node from the list |
+| `save_video(output_name, fps)` | Export pointer/node operations as MP4 |
 
 ---
 
 ### 🔹 `Dijkstra`
 
-| Method | Description |
-| :--- | :--- |
-| `add_edge(u, v, weight)` | Add a weighted edge |
-| `visualize_search(start_node, target_node)` | Run & animate Dijkstra's algorithm |
-| `save_video(output_name, fps)` | Export pathfinding animation as MP4 |
+| Method | Parameters | Description |
+| :--- | :--- | :--- |
+| `add_edge(u, v, weight)` | `u, v: nodes`, `weight: int` | Add a weighted edge between two nodes |
+| `visualize_search(start, target)` | `start, target: nodes` | Run and animate the shortest pathfinding process |
+| `save_video(output_name, fps)` | `output_name: str`, `fps: int` | Export pathfinding animation as MP4 |
 
 ---
 
@@ -387,10 +411,12 @@ vizods/
 │   └── test_all_algorithms.py
 ├── vizods/
 │   ├── __init__.py
+│   ├── binary_search.py
 │   ├── bst.py
 │   ├── bubble_sort.py
 │   ├── dijkstra.py
 │   ├── insertion_sort.py
+│   ├── linear_search.py
 │   ├── linked_list.py
 │   ├── merge_sort.py
 │   ├── queue.py

@@ -3,4 +3,3 @@ imageio>=2.20.0
 imageio-ffmpeg>=0.4.7
 networkx>=2.8.0
 numpy>=1.21.0
-streamlit>=1.15.0
