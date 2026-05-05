@@ -17,7 +17,7 @@
 
 **Transform abstract algorithms into stunning animated visualizations with a single line of code.**
 
-[Installation](#-installation) • [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [Documentation](#-api-documentation) • [Examples](#-examples) • [Contributing](#-contributing)
+[Installation](#-installation) • [Quick Start](#-quick-start) • [See It in Action](#see-it-in-action) • [Documentation](#-api-documentation) • [Examples](#-examples) • [Contributing](#-contributing)
 
 </div>
 
