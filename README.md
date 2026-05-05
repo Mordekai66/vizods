@@ -31,7 +31,7 @@
 
 ---
 
-## 🖼️ See It in Action
+## See It in Action
 
 **Bubble Sort in motion (GIF):**
 
