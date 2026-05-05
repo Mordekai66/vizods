@@ -35,7 +35,7 @@
 
 **Bubble Sort in motion (GIF):**
 
-![Bubble Sort Animation](./output/bubble_sort.gif)
+<img width="600" height="400" alt="bubble_sort" src="https://github.com/user-attachments/assets/96a4db75-f65c-4fa7-bb29-406c3da556a5" />
 
 *(Generate your own with `sorter.save_gif("bubble_sort.gif", fps=5)`)*
 
