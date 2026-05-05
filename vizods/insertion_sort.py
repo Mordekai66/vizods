@@ -78,6 +78,19 @@ class InsertionSort:
                 writer.append_data(image)
                 
         print(f"Video saved as {output_name}")
+    
+    def save_gif(self, output_name="insertion_sort.gif", fps=4):
+        if not self.frames:
+            print("Make sure to call sort() with visualize=True before saving the GIF.")
+            return
+
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filepath in self.frames:
+                image = imageio.imread(filepath)
+                writer.append_data(image)
+                
+        print(f"GIF saved as {output_name}")
+
     def save_snapshot(self, output_name="insertion_sort_final.png"):
         plt.figure(figsize=(8, 5))
         plt.bar(range(len(self.data)), self.data, color='green')

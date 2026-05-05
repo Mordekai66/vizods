@@ -124,6 +124,18 @@ class Stack:
         
         print(f"Video saved as {output_name}")
 
+    def save_gif(self, output_name="stack.gif", fps=2):
+        if not self.frames:
+            print("There are no frames to create a GIF.")
+            return
+
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filepath in self.frames:
+                image = imageio.imread(filepath)
+                writer.append_data(image)
+        
+        print(f"GIF saved as {output_name}")
+
     def save_snapshot(self, filename="stack_final.png"):
         if not self.frames:
             print("No frames to save!")

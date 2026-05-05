@@ -72,6 +72,16 @@ class LinkedList:
                 writer.append_data(image)
         print(f"Linked List video saved: {output_name}")
         
+    def save_gif(self, output_name="linked_list.gif", fps=2):
+        if not self.frames:
+            print("No frames to create GIF.")
+            return
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filename in self.frames:
+                image = imageio.imread(filename)
+                writer.append_data(image)
+        print(f"Linked List GIF saved: {output_name}")
+        
     def save_snapshot(self, filename="linked_list_snapshot.png"):
         if self.frames:
             latest_frame = self.frames[-1]

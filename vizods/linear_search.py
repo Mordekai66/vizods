@@ -59,6 +59,15 @@ class LinearSearch:
             for filepath in self.frames:
                 writer.append_data(imageio.imread(filepath))
         print(f"Video saved: {output_name}")
+    
+    def save_gif(self, output_name="linear_search.gif", fps=2):
+        if not self.frames:
+            print("There are no frames to save.")
+            return
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filepath in self.frames:
+                writer.append_data(imageio.imread(filepath))
+        print(f"GIF saved: {output_name}")
 
     def save_snapshot(self, output_name="linear_search_snapshot.png"):
         if not self.frames:

@@ -64,7 +64,7 @@ class SelectionSort:
 
     def save_video(self, output_name="selection_sort.mp4", fps=3):
         if not self.frames:
-            print("❌ لا توجد لقطات! تأكد من تشغيل sort() أولاً.")
+            print("❌ Frames not found! Make sure to run sort() first.")
             return
 
         with imageio.get_writer(output_name, fps=fps) as writer:
@@ -74,6 +74,18 @@ class SelectionSort:
         
         print(f"Video saved as {output_name}")
         
+    def save_gif(self, output_name="selection_sort.gif", fps=3):
+        if not self.frames:
+            print("❌ Frames not found! Make sure to run sort() first.")
+            return
+
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filepath in self.frames:
+                image = imageio.imread(filepath)
+                writer.append_data(image)
+        
+        print(f"GIF saved as {output_name}")
+
     def save_snapshot(self, filename="final_state.png"):
         plt.bar(range(len(self.data)), self.data, color='green')
         plt.title("Final Sorted State")

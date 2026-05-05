@@ -182,3 +182,13 @@ class BST:
                 image = imageio.imread(filename)
                 writer.append_data(image)
         print(f"BST Visualization saved as: {output_name}")
+    
+    def save_gif(self, output_name="bst_animation.gif", fps=1):
+        if not self.frames:
+            print("No frames to save!")
+            return
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filename in self.frames:
+                image = imageio.imread(filename)
+                writer.append_data(image)
+        print(f"BST Visualization saved as: {output_name}")

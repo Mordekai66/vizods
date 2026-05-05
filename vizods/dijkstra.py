@@ -118,3 +118,13 @@ class Dijkstra:
             print(f"✅ Latest snapshot saved as: {filename}")
         else:
             print("⚠️ No snapshots available to save.")
+    
+    def save_gif(self, output_name="dijkstra_path.gif", fps=1):
+        if not self.frames:
+            print("⚠️ No frames to create GIF.")
+            return
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filename in self.frames:
+                image = imageio.imread(filename)
+                writer.append_data(image)
+        print(f"✅ Dijkstra GIF saved as: {output_name}")

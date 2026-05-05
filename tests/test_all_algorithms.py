@@ -52,6 +52,8 @@ def test_binary_search():
     assert bs.search(100) == -1, "Should not find 100"
     
     bs.save_video("output/binary_search.mp4", fps=2)
+    bs.save_gif("output/binary_search.gif", fps=2)
+    bs.save_snapshot("output/binary_search_snapshot.png")
     print_success("Binary Search tests passed!")
 
 def test_linear_search():
@@ -65,6 +67,8 @@ def test_linear_search():
     assert ls.search(100) == False, "Should not find 100"
     
     ls.save_video("output/linear_search.mp4", fps=2)
+    ls.save_gif("output/linear_search.gif", fps=2)
+    ls.save_snapshot("output/linear_search_snapshot.png")
     print_success("Linear Search tests passed!")
 
 def test_bst():
@@ -87,6 +91,7 @@ def test_bst():
     bst.insert(50) 
     
     bst.save_video("output/bst_animation.mp4", fps=1)
+    bst.save_gif("output/bst_animation.gif", fps=1)
     bst.save_snapshot("output/bst_snapshot.png")
     
     print_success("BST tests passed!")
@@ -115,6 +120,7 @@ def test_stack():
     assert stack.pop() is None, "Pop on empty stack should return None"
     
     stack.save_video("output/stack.mp4", fps=2)
+    stack.save_gif("output/stack.gif", fps=2)
     stack.save_snapshot("output/stack_snapshot.png")
     
     print_success("Stack tests passed!")
@@ -146,6 +152,7 @@ def test_queue():
     assert queue.front() is None, "Front on empty queue should return None"
     
     queue.save_video("output/queue.mp4", fps=2)
+    queue.save_gif("output/queue.gif", fps=2)
     queue.save_snapshot("output/queue_snapshot.png")
     
     print_success("Queue tests passed!")
@@ -168,6 +175,7 @@ def test_linked_list():
     ll.delete_node(100)
     
     ll.save_video("output/linked_list.mp4", fps=2)
+    ll.save_gif("output/linked_list.gif", fps=2)
     ll.save_snapshot("output/linked_list_snapshot.png")
     
     print_success("Linked List tests passed!")
@@ -184,6 +192,7 @@ def test_bubble_sort():
     assert sorter.data == expected, f"Bubble sort failed. Got {sorter.data}, expected {expected}"
     
     sorter.save_video("output/bubble_sort.mp4", fps=5)
+    sorter.save_gif("output/bubble_sort.gif", fps=5)
     sorter.save_snapshot("output/bubble_sort_snapshot.png")
     
     print_success("Bubble Sort tests passed!")
@@ -200,6 +209,7 @@ def test_insertion_sort():
     assert sorter.data == expected, f"Insertion sort failed. Got {sorter.data}, expected {expected}"
     
     sorter.save_video("output/insertion_sort.mp4", fps=4)
+    sorter.save_gif("output/insertion_sort.gif", fps=4)
     sorter.save_snapshot("output/insertion_sort_snapshot.png")
     
     print_success("Insertion Sort tests passed!")
@@ -216,6 +226,7 @@ def test_selection_sort():
     assert sorter.data == expected, f"Selection sort failed. Got {sorter.data}, expected {expected}"
     
     sorter.save_video("output/selection_sort.mp4", fps=3)
+    sorter.save_gif("output/selection_sort.gif", fps=3)
     sorter.save_snapshot("output/selection_sort_snapshot.png")
     
     print_success("Selection Sort tests passed!")
@@ -232,6 +243,7 @@ def test_merge_sort():
     assert sorter.data == expected, f"Merge sort failed. Got {sorter.data}, expected {expected}"
     
     sorter.save_video("output/merge_sort.mp4", fps=3)
+    sorter.save_gif("output/merge_sort.gif", fps=3)
     sorter.save_snapshot("output/merge_sort_snapshot.png")
     
     print_success("Merge Sort tests passed!")
@@ -248,6 +260,7 @@ def test_quick_sort():
     assert sorter.data == expected, f"Quick sort failed. Got {sorter.data}, expected {expected}"
     
     sorter.save_video("output/quick_sort.mp4", fps=5)
+    sorter.save_gif("output/quick_sort.gif", fps=5)
     sorter.save_snapshot("output/quick_sort_snapshot.png")
     
     print_success("Quick Sort tests passed!")
@@ -275,6 +288,7 @@ def test_dijkstra():
     dijkstra.visualize_search('A', 'F')
     
     dijkstra.save_video("output/dijkstra_path.mp4", fps=1)
+    dijkstra.save_gif("output/dijkstra_path.gif", fps=1)
     dijkstra.save_snapshot("output/dijkstra_snapshot.png")
     
     print_success("Dijkstra's Algorithm tests passed!")

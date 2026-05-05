@@ -60,6 +60,16 @@ class BubbleSort:
                 image = imageio.imread(filename)
                 writer.append_data(image)
         print(f"Video saved as {output_name}")
+    
+    def save_gif(self, output_name="bubble_sort.gif", fps=5):
+        if not self.frames:
+            print("No frames to create GIF.")
+            return
+        with imageio.get_writer(output_name, mode='I', fps=fps) as writer:
+            for filename in self.frames:
+                image = imageio.imread(filename)
+                writer.append_data(image)
+        print(f"GIF saved as {output_name}")
 
     def save_snapshot(self, filename="final_state.png"):
         plt.bar(range(len(self.data)), self.data, color='green')
